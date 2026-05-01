@@ -11,6 +11,15 @@
       font-family: Arial, sans-serif;
       background: #0f172a;
       color: #e2e8f0;
+      overflow-x:hidden;
+      scroll-behavior:smooth;
+    }
+
+    canvas{
+      position:fixed;
+      top:0;
+      left:0;
+      z-index:-1;
     }
 
     header {
@@ -19,9 +28,30 @@
       background: #111827;
     }
 
-    h1 {
+    h1{
       margin: 0;
       font-size: 32px;
+      background: linear-gradient(
+        270deg,
+        rgb(0, 0, 40),
+        rgb(0, 120, 255),
+        rgb(200, 230, 255),
+        rgb(0, 0, 40)
+      );
+      background-size: 600% 600%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: rgbFlow 6s ease infinite;
+      text-shadow: 
+        0 0 5px rgba(0, 0, 40, 0.5),
+        0 0 10px rgba(0, 120, 255, 0.5),
+        0 0 15px rgba(200, 230, 255, 0.7);
+    }
+
+    @keyframes rgbFlow{
+      0%{background-position:0% 50%}
+      50%{background-position:100% 50%}
+      100%{background-position:0% 50%}
     }
 
     section {
@@ -33,8 +63,21 @@
     .card {
       background: #1e293b;
       padding: 15px;
-      margin: 10px 0;
+      margin: 15px 0;
       border-radius: 10px;
+      opacity:0;
+      transform:translateY(40px);
+      transition:all .6s ease;
+    }
+
+    .card.show{
+      opacity:1;
+      transform:translateY(0);
+    }
+
+    .card:hover{
+      box-shadow:0 0 20px #38bdf8;
+      transform:scale(1.02);
     }
 
     h2 {
@@ -54,6 +97,13 @@
       margin: 5px;
       border-radius: 5px;
       font-size: 12px;
+      transition:.3s;
+    }
+
+    .tag:hover{
+      background:#38bdf8;
+      color:#000;
+      transform:scale(1.1);
     }
 
     footer {
@@ -69,11 +119,22 @@
       border-radius: 8px;
       cursor: pointer;
       margin-top: 10px;
+      transition:.3s;
     }
+
+    button:hover{
+      transform:scale(1.1);
+      box-shadow:0 0 10px #38bdf8;
+    }
+
+    ::-webkit-scrollbar{width:8px}
+    ::-webkit-scrollbar-thumb{background:#38bdf8}
   </style>
 </head>
 
 <body>
+
+<canvas id="bg"></canvas>
 
 <header>
   <h1>aguila1030r</h1>
@@ -108,8 +169,10 @@
     <p><strong>Bases de Datos:</strong></p>
     <span class="tag">PHP</span>
     <span class="tag">SQL</span>
+  </div>
 
-    <p><strong>Otras habilidades:</strong></p>
+  <div class="card">
+    <h2>Otras habilidades</h2>
     <ul>
       <li>Diseño gráfico</li>
       <li>Animación 2D y 3D</li>
@@ -152,23 +215,20 @@
     <p><strong>Bejabox</strong></p>
     <p>
       Servidor de Minecraft donde participé en la creación, configuración y administración.
-      Incluye mecánicas personalizadas, optimización, plugins, mapas y experiencias para jugadores.
     </p>
 
     <p><strong>Videojuego 3D</strong></p>
     <p>
-      Proyecto en desarrollo donde trabajo en mecánicas, programación, modelado básico,
-      pruebas, optimización y mejoras continuas.
+      Proyecto en desarrollo donde trabajo en mecánicas, programación y modelado.
     </p>
-
-    <p>Entre otros proyectos...</p>
   </div>
 
   <div class="card">
     <h2>Referencias</h2>
     <p>Disponibles a solicitud</p>
 
-    <button onclick="mostrarContacto()">Mostrar contacto</button>
+    <button id="btnContacto" onclick="toggleContacto()">Mostrar contacto</button>
+
     <p id="contacto" style="display:none; margin-top:10px;">
       📧 jesusingael@gmail.com
     </p>
@@ -181,10 +241,66 @@
 </footer>
 
 <script>
-  function mostrarContacto() {
-    document.getElementById("contacto").style.display = "block";
+
+function toggleContacto() {
+  const contacto = document.getElementById("contacto");
+  const btn = document.getElementById("btnContacto");
+
+  if (contacto.style.display === "block") {
+    contacto.style.display = "none";
+    btn.textContent = "Mostrar contacto";
+  } else {
+    contacto.style.display = "block";
+    btn.textContent = "Ocultar contacto";
   }
+}
+
+const cards=document.querySelectorAll(".card");
+
+window.addEventListener("scroll",()=>{
+  cards.forEach(c=>{
+    if(c.getBoundingClientRect().top < window.innerHeight*0.85){
+      c.classList.add("show");
+    }
+  });
+});
+
+const canvas=document.getElementById("bg");
+const ctx=canvas.getContext("2d");
+
+canvas.width=window.innerWidth;
+canvas.height=window.innerHeight;
+
+let particles=[];
+for(let i=0;i<60;i++){
+  particles.push({
+    x:Math.random()*canvas.width,
+    y:Math.random()*canvas.height,
+    vx:(Math.random()-0.5)*1.2,
+    vy:(Math.random()-0.5)*1.2
+  });
+}
+
+function animate(){
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+
+  particles.forEach(p=>{
+    p.x+=p.vx;
+    p.y+=p.vy;
+
+    if(p.x<0||p.x>canvas.width)p.vx*=-1;
+    if(p.y<0||p.y>canvas.height)p.vy*=-1;
+
+    ctx.fillStyle="#38bdf8";
+    ctx.fillRect(p.x,p.y,2,2);
+  });
+
+  requestAnimationFrame(animate);
+}
+
+animate();
+
 </script>
 
 </body>
-      </html>
+</html>
