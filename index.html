@@ -3,14 +3,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title> - Agula1030R - </title>
+  <title>Aguila1030R</title>
 
   <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #0f172a;
-      color: #e2e8f0;
+
+    body{
+      margin:0;
+      font-family:Arial,sans-serif;
+      background:#0f172a;
+      color:#e2e8f0;
       overflow-x:hidden;
       scroll-behavior:smooth;
     }
@@ -22,30 +23,35 @@
       z-index:-1;
     }
 
-    header {
-      text-align: center;
-      padding: 30px;
-      background: #111827;
+    header{
+      text-align:center;
+      padding:50px 20px;
+      background:#111827;
+      border-bottom:1px solid #1e293b;
     }
 
     h1{
-      margin: 0;
-      font-size: 32px;
-      background: linear-gradient(
+      margin:0;
+      font-size:42px;
+
+      background:linear-gradient(
         270deg,
-        rgb(0, 0, 40),
-        rgb(0, 120, 255),
-        rgb(200, 230, 255),
-        rgb(0, 0, 40)
+        rgb(0,0,40),
+        rgb(0,120,255),
+        rgb(200,230,255),
+        rgb(0,0,40)
       );
-      background-size: 600% 600%;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      animation: rgbFlow 6s ease infinite;
-      text-shadow: 
-        0 0 5px rgba(0, 0, 40, 0.5),
-        0 0 10px rgba(0, 120, 255, 0.5),
-        0 0 15px rgba(200, 230, 255, 0.7);
+
+      background-size:600% 600%;
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+
+      animation:rgbFlow 6s ease infinite;
+
+      text-shadow:
+      0 0 5px rgba(0,0,40,.5),
+      0 0 10px rgba(0,120,255,.5),
+      0 0 15px rgba(200,230,255,.7);
     }
 
     @keyframes rgbFlow{
@@ -54,19 +60,60 @@
       100%{background-position:0% 50%}
     }
 
-    section {
-      max-width: 900px;
-      margin: auto;
-      padding: 20px;
+    .logo{
+      width:130px;
+      height:130px;
+      object-fit:cover;
+      border-radius:50%;
+      margin-top:20px;
+      border:3px solid #38bdf8;
+      box-shadow:0 0 20px #38bdf8;
     }
 
-    .card {
-      background: #1e293b;
-      padding: 15px;
-      margin: 15px 0;
-      border-radius: 10px;
+    .subtitle{
+      margin-top:20px;
+      color:#cbd5e1;
+      font-size:16px;
+    }
+
+    .top-buttons{
+      margin-top:25px;
+    }
+
+    .top-buttons a{
+      display:inline-block;
+      text-decoration:none;
+      color:white;
+      background:#1e293b;
+      padding:10px 18px;
+      margin:5px;
+      border-radius:10px;
+      transition:.3s;
+      border:1px solid #38bdf8;
+    }
+
+    .top-buttons a:hover{
+      background:#38bdf8;
+      color:#000;
+      box-shadow:0 0 15px #38bdf8;
+      transform:scale(1.05);
+    }
+
+    section{
+      max-width:900px;
+      margin:auto;
+      padding:20px;
+    }
+
+    .card{
+      background:#1e293b;
+      padding:20px;
+      margin:20px 0;
+      border-radius:12px;
+
       opacity:0;
       transform:translateY(40px);
+
       transition:all .6s ease;
     }
 
@@ -80,23 +127,23 @@
       transform:scale(1.02);
     }
 
-    h2 {
-      color: #38bdf8;
-      border-bottom: 1px solid #334155;
-      padding-bottom: 5px;
+    h2{
+      color:#38bdf8;
+      border-bottom:1px solid #334155;
+      padding-bottom:5px;
     }
 
-    ul {
-      padding-left: 20px;
+    ul{
+      padding-left:20px;
     }
 
-    .tag {
-      display: inline-block;
-      background: #334155;
-      padding: 5px 10px;
-      margin: 5px;
-      border-radius: 5px;
-      font-size: 12px;
+    .tag{
+      display:inline-block;
+      background:#334155;
+      padding:5px 10px;
+      margin:5px;
+      border-radius:5px;
+      font-size:12px;
       transition:.3s;
     }
 
@@ -106,29 +153,20 @@
       transform:scale(1.1);
     }
 
-    footer {
-      text-align: center;
-      padding: 20px;
-      color: #94a3b8;
+    footer{
+      text-align:center;
+      padding:20px;
+      color:#94a3b8;
     }
 
-    button {
-      padding: 10px;
-      background: #38bdf8;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      margin-top: 10px;
-      transition:.3s;
+    ::-webkit-scrollbar{
+      width:8px;
     }
 
-    button:hover{
-      transform:scale(1.1);
-      box-shadow:0 0 10px #38bdf8;
+    ::-webkit-scrollbar-thumb{
+      background:#38bdf8;
     }
 
-    ::-webkit-scrollbar{width:8px}
-    ::-webkit-scrollbar-thumb{background:#38bdf8}
   </style>
 </head>
 
@@ -137,102 +175,152 @@
 <canvas id="bg"></canvas>
 
 <header>
-  <h1>aguila1030r</h1>
-  <p>México | Desarrollador de sotware | Gamer</p>
+
+  <h1>Aguila1030R</h1>
+
+  <img src="DOC-20260506-WA0008.png" class="logo">
+
+  <p class="subtitle">
+    México | Software | IA | Apps | Gamer | Founder de Ultec
+  </p>
+
+  <div class="top-buttons">
+    <a href="#proyectos">Proyectos</a>
+    <a href="#contacto">Contacto</a>
+
+    <a href="https://github.com/TUUSUARIO" target="_blank">
+      GitHub
+    </a>
+  </div>
+
 </header>
 
 <section>
 
   <div class="card">
+
     <h2>Perfil</h2>
+
     <p>
-      hola me conocen como aguila1030r, me especializo habilidades en tecnología, desarrollo digital y creatividad multimedia.
-      Experiencia en programación, desarrollo web, creación de contenido digital,
-      así como en el desarrollo de videojuegos y gestión de servidores;
-      y estoy estudiando ingenieria robotica y mecatronica.
+      hola me conocen como aguila1030r,
+      me especializo en tecnología,
+      desarrollo digital y creatividad multimedia.
+
+      Experiencia en programación,
+      desarrollo web,
+      creación de contenido digital,
+      así como en el desarrollo de videojuegos,
+      gestión de servidores,
+      IA y creación de apps;
+
+      y estoy estudiando ingeniería robótica
+      y mecatrónica.
     </p>
+
   </div>
 
   <div class="card">
+
     <h2>Habilidades Técnicas</h2>
 
     <p><strong>Programación:</strong></p>
+
     <span class="tag">Python</span>
     <span class="tag">Java</span>
     <span class="tag">C++</span>
 
     <p><strong>Desarrollo Web:</strong></p>
+
     <span class="tag">HTML</span>
     <span class="tag">CSS</span>
     <span class="tag">JavaScript</span>
 
     <p><strong>Bases de Datos:</strong></p>
+
     <span class="tag">PHP</span>
     <span class="tag">SQL</span>
+
   </div>
 
   <div class="card">
+
     <h2>Otras habilidades</h2>
+
     <ul>
-      <li>Arte gráphico</li>
+      <li>Arte gráfico</li>
       <li>Animación 2D y 3D</li>
       <li>Edición de video</li>
       <li>Publicidad digital</li>
-      <li>desarollo de videojuegos</li>
-      <li>creacion de weps con codigo</li>
-      <li>creacion de web no-code</li>
+      <li>Desarrollo de videojuegos</li>
+      <li>Creación de webs con código</li>
+      <li>Creación de webs no-code</li>
+      <li>Creación de apps</li>
+      <li>Creación de IA</li>
     </ul>
+
   </div>
 
   <div class="card">
+
     <h2>Experiencia en Minecraft</h2>
+
     <ul>
-      <li>Creación y configuración de servidores (host y panel)</li>
+      <li>Creación y configuración de servidores</li>
       <li>Builder</li>
       <li>Desarrollo de mods y plugins</li>
-      <li>Configuración de servidores (dentro del mc o comandos internos)</li>
+      <li>Configuración avanzada de servidores</li>
     </ul>
+
   </div>
 
   <div class="card">
+
     <h2>Otros</h2>
+
     <ul>
-      <li>Gamer profesional</li>
-      <li>Influencer de Free Fire</li>
+      <li>Gaming competitivo</li>
+      <li>Contenido sobre Free Fire</li>
+      <li>Founder de Ultec</li>
     </ul>
+
   </div>
 
   <div class="card">
+
     <h2>Idiomas</h2>
+
     <ul>
       <li>Español</li>
       <li>Inglés</li>
     </ul>
+
   </div>
 
-  <div class="card">
+  <div class="card" id="proyectos">
+
     <h2>Proyectos</h2>
 
-    <p><strong>Bejabox</strong></p>
+    <p><strong>BejaBox</strong></p>
+
     <p>
-      cree un servidor de Minecraft con la modalidad principal boxpvp.
+      Creé un servidor de Minecraft
+      con la modalidad principal BoxPvP.
     </p>
 
-    <p><strong> Entre otros... </strong></p>
-    <p>
-     ...
-    </p>
+    <p><strong>Entre otros...</strong></p>
+
+    <p>...</p>
+
   </div>
 
-  <div class="card">
-    <h2>Referencias</h2>
-    <p>Disponibles a solicitud</p>
+  <div class="card" id="contacto">
 
-    <button id="btnContacto" onclick="toggleContacto()">Mostrar contacto</button>
+    <h2>Contacto</h2>
 
-    <p id="contacto" style="display:none; margin-top:10px;">
-      📧 jesusingael@gmail.com
-    </p>
+    <p>📧 jesusingael@gmail.com</p>
+    <p>💬 Discord: Aguila1030R</p>
+    <p>💻 GitHub: TUUSUARIO</p>
+
   </div>
 
 </section>
@@ -243,49 +331,51 @@
 
 <script>
 
-function toggleContacto() {
-  const contacto = document.getElementById("contacto");
-  const btn = document.getElementById("btnContacto");
-
-  if (contacto.style.display === "block") {
-    contacto.style.display = "none";
-    btn.textContent = "Mostrar contacto";
-  } else {
-    contacto.style.display = "block";
-    btn.textContent = "Ocultar contacto";
-  }
-}
-
 const cards=document.querySelectorAll(".card");
 
 window.addEventListener("scroll",()=>{
+
   cards.forEach(c=>{
+
     if(c.getBoundingClientRect().top < window.innerHeight*0.85){
+
       c.classList.add("show");
+
     }
+
   });
+
 });
 
 const canvas=document.getElementById("bg");
+
 const ctx=canvas.getContext("2d");
 
 canvas.width=window.innerWidth;
 canvas.height=window.innerHeight;
 
 let particles=[];
+
 for(let i=0;i<60;i++){
+
   particles.push({
+
     x:Math.random()*canvas.width,
     y:Math.random()*canvas.height,
+
     vx:(Math.random()-0.5)*1.2,
     vy:(Math.random()-0.5)*1.2
+
   });
+
 }
 
 function animate(){
+
   ctx.clearRect(0,0,canvas.width,canvas.height);
 
   particles.forEach(p=>{
+
     p.x+=p.vx;
     p.y+=p.vy;
 
@@ -293,10 +383,13 @@ function animate(){
     if(p.y<0||p.y>canvas.height)p.vy*=-1;
 
     ctx.fillStyle="#38bdf8";
+
     ctx.fillRect(p.x,p.y,2,2);
+
   });
 
   requestAnimationFrame(animate);
+
 }
 
 animate();
